@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    # Service containers to run with `container-job`
+    # Service containers to run with `container-job`        
     services:
       # Label used to access the service container
       postgres:
@@ -42,15 +42,16 @@ jobs:
       minio:
         image: bitnami/minio:latest
         env:
-          MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
-          MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
+          MINIO_ACCESS_KEY: minio-access-key
+          MINIO_SECRET_KEY: minio-secret-key
+          MINIO_DEFAULT_BUCKETS: task-manager
         ports:
           - 9000:9000
         options: --name minio-server
   
     runs-on: ubuntu-latest
     env:
-      name: worker-env 
+      #name: worker-env 
       cache-name: cache-node-modules
       ## add secret on settings-secret-add new secret e.g name=POSTGRES_PASSWORD value=mypassword
       sanbercode_database__password: ${{ secrets.POSTGRES_PASSWORD }}
