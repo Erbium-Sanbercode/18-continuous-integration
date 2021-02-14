@@ -55,6 +55,8 @@ jobs:
       ## add secret on settings-secret-add new secret e.g name=POSTGRES_PASSWORD value=mypassword
       sanbercode_database__password: ${{ secrets.POSTGRES_PASSWORD }}
       sanbercode_database__database: ${{ secrets.POSTGRES_DB }}
+      sanbercode_minio__accessKey: ${{ secrets.MINIO_ACCESS_KEY }}
+      sanbercode_minio__secretKey: ${{ secrets.MINIO_SECRET_KEY }}
       # The hostname used to communicate with the Redis service container
       REDIS_HOST: redis
       # The default Redis port
