@@ -42,8 +42,8 @@ jobs:
       minio:
         image: bitnami/minio:latest
         env:
-          MINIO_ACCESS_KEY: minio-access-key
-          MINIO_SECRET_KEY: minio-secret-key
+          MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
+          MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
           MINIO_DEFAULT_BUCKETS: task-manager
         ports:
           - 9000:9000
@@ -54,10 +54,10 @@ jobs:
       #name: worker-env 
       cache-name: cache-node-modules
       ## add secret on settings-secret-add new secret e.g name=POSTGRES_PASSWORD value=mypassword
-      sanbercode_database__password: ${{ secrets.POSTGRES_PASSWORD }}
-      sanbercode_database__database: ${{ secrets.POSTGRES_DB }}
-      sanbercode_minio__accessKey: ${{ secrets.MINIO_ACCESS_KEY }}
-      sanbercode_minio__secretKey: ${{ secrets.MINIO_SECRET_KEY }}
+      sanbercode2_database__password: ${{ secrets.POSTGRES_PASSWORD }}
+      sanbercode2_database__database: ${{ secrets.POSTGRES_DB }}
+      sanbercode2_minio__accessKey: ${{ secrets.MINIO_ACCESS_KEY }}
+      sanbercode2_minio__secretKey: ${{ secrets.MINIO_SECRET_KEY }}
       # The hostname used to communicate with the Redis service container
       REDIS_HOST: redis
       # The default Redis port
